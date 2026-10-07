@@ -1,0 +1,46 @@
+/* Game-specific rules only — shared layout/forms/turn-indicator/buttons
+   live in shared/css/base.css. */
+
+.shape-choice {
+  display: flex;
+  gap: 20px;
+}
+.shape-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: var(--chalk);
+  cursor: pointer;
+}
+.shape-option input {
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.chomp-board {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  width: fit-content;
+  margin: 28px auto;
+}
+.chomp-row {
+  display: flex;
+  gap: 4px;
+}
+.chomp-cell {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid var(--circle-guide-color);
+  background: var(--ink-raised);
+  cursor: pointer;
+  padding: 0;
+}
+.chomp-cell:hover { border-color: var(--accent); }
+.chomp-cell-poison {
+  background: rgba(107, 155, 79, 0.18);
+  border: 2px dashed #6b9b4f;
+}

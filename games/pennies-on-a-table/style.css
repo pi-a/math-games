@@ -1,0 +1,33 @@
+/* Game-specific rules only — shared layout/forms/turn-indicator/buttons
+   live in shared/css/base.css. */
+
+#board {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  cursor: crosshair;
+}
+.table {
+  fill: var(--ink-raised);
+  stroke: var(--circle-guide-color);
+  stroke-width: 2px;
+}
+.penny {
+  stroke: var(--ink);
+  stroke-width: 2px;
+}
+.penny.player1 { fill: var(--player-one); }
+.penny.player2 { fill: var(--player-two); }
+
+.preview-penny {
+  pointer-events: none;
+  fill-opacity: 0.3;
+  stroke-width: 2.5px;
+  stroke-dasharray: 1 6;
+  stroke-linecap: round;
+}
+.preview-penny.hidden { display: none; }
+.preview-penny.player1 { fill: var(--player-one); stroke: var(--player-one); }
+.preview-penny.player2 { fill: var(--player-two); stroke: var(--player-two); }

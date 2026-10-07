@@ -1,0 +1,46 @@
+/* Game-specific rules only — shared layout/forms/turn-indicator/buttons
+   live in shared/css/base.css. */
+
+.piles-container { margin: 12px 0; }
+.pile-block { margin: 20px 0; }
+.pile-label {
+  font-size: 13px;
+  color: var(--chalk-dim);
+  margin: 0 0 8px;
+}
+.pile-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 26px;
+}
+
+.stone {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  cursor: pointer;
+  padding: 0;
+}
+
+.turn-player1 .stone:hover,
+.turn-player1 .stone:hover ~ .stone {
+  background: var(--player-one);
+}
+.turn-player2 .stone:hover,
+.turn-player2 .stone:hover ~ .stone {
+  background: var(--player-two);
+}
+
+.pile-empty {
+  color: var(--chalk-dim);
+  font-size: 14px;
+  font-style: italic;
+}
+.pile-hint {
+  font-size: 13px;
+  color: var(--chalk-dim);
+  margin-top: 20px;
+}

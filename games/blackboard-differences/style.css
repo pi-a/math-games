@@ -1,0 +1,36 @@
+/* Game-specific rules only — shared layout/forms/turn-indicator/buttons
+   live in shared/css/base.css. */
+
+.number-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 32px 0;
+}
+
+.number-chip {
+  min-width: 44px;
+  height: 44px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid var(--circle-guide-color);
+  background: var(--ink-raised);
+  color: var(--chalk);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+.number-chip:hover { border-color: var(--accent); }
+.number-chip-start {
+  border-style: dashed;
+  color: var(--chalk-dim);
+}
+.number-chip-selected {
+  border-color: var(--point-selected-fill);
+  background: var(--point-selected-fill);
+  color: var(--ink);
+}
+.number-chip.player1 { color: var(--player-one); border-color: var(--player-one); }
+.number-chip.player2 { color: var(--player-two); border-color: var(--player-two); }

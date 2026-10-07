@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zweierpotenzen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/css/theme.css" />
+<link rel="stylesheet" href="../../shared/css/base.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="corner corner-top-left"><img class="corner-image" data-asset="corner-top-left" alt="" /></div>
+<div class="corner corner-top-right"><img class="corner-image" data-asset="corner-top-right" alt="" /></div>
+<div class="corner corner-bottom-left"><img class="corner-image" data-asset="corner-bottom-left" alt="" /></div>
+<div class="corner corner-bottom-right"><img class="corner-image" data-asset="corner-bottom-right" alt="" /></div>
+
+<main class="wrap">
+
+  <section id="view-setup" class="view">
+    <h1 class="title">Zweierpotenzen</h1>
+    <p class="tagline">Zähle von 1000 genau bis 0 herunter.</p>
+
+    <div class="rules">
+      <p>Die Zahl startet bei 1000. Wenn du am Zug bist, ziehst du eine Zweierpotenz ab (1, 2, 4, 8, 16, ...). Sie darf nicht größer sein als die aktuelle Zahl.</p>
+      <p>Wer die Zahl genau auf 0 bringt, gewinnt.</p>
+      <p>Auf dem Spielfeld siehst du nur die Hochzahlen (2<sup>0</sup>, 2<sup>1</sup>, 2<sup>2</sup> und so weiter). Du rechnest die Zahl selbst aus und gibst sie ein.</p>
+    </div>
+
+    <form id="setup-form" class="setup-form">
+      <div class="field-row">
+        <div class="field">
+          <label for="player1-name">Spieler 1: Name oder Spitzname</label>
+          <input type="text" id="player1-name" maxlength="20" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="player2-name">Spieler 2: Name oder Spitzname</label>
+          <input type="text" id="player2-name" maxlength="20" autocomplete="off" />
+        </div>
+      </div>
+
+      <button type="submit" class="button-primary">Spiel starten</button>
+    </form>
+  </section>
+
+  <section id="view-game" class="view hidden">
+    <button id="back-button" class="button-secondary" type="button">&larr; Zurück</button>
+
+    <div class="turn-row">
+      <div id="turn-indicator-left" class="turn-slot"></div>
+      <div id="turn-indicator-right" class="turn-slot"></div>
+    </div>
+
+    <p id="current-number" class="current-number"></p>
+
+    <div id="power-reference" class="power-reference"></div>
+
+    <form id="amount-form" class="amount-form" novalidate>
+      <label for="amount-input" class="amount-label">Wie viel möchtest du abziehen?</label>
+      <div class="amount-input-row">
+        <input type="number" id="amount-input" min="1" step="1" inputmode="numeric" autocomplete="off" />
+        <button type="submit" id="amount-submit" class="button-primary">Prüfen</button>
+      </div>
+    </form>
+
+    <div id="message-banner" class="message-banner" aria-live="polite"></div>
+  </section>
+
+</main>
+
+<script src="js/config.js"></script>
+<script src="../../shared/js/assets.js"></script>
+<script src="js/game.js"></script>
+<script src="js/render.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

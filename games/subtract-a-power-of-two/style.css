@@ -1,0 +1,62 @@
+/* Game-specific rules only — shared layout/forms/turn-indicator/buttons
+   live in shared/css/base.css. */
+
+.current-number {
+  font-family: var(--font-heading);
+  font-size: 72px;
+  font-weight: 600;
+  text-align: center;
+  margin: 24px 0 16px;
+  font-variant-numeric: tabular-nums;
+}
+
+.power-reference {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 0 28px;
+}
+.power-block {
+  min-width: 42px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 2px solid var(--circle-guide-color);
+  background: var(--ink-raised);
+  color: var(--chalk-dim);
+  font-family: var(--font-body);
+  font-size: 16px;
+}
+.power-block sup { font-size: 0.65em; margin-left: 1px; }
+
+.power-block-matched { background: var(--ink); }
+.power-block-matched.player1 { border-color: var(--player-one); color: var(--player-one); }
+.power-block-matched.player2 { border-color: var(--player-two); color: var(--player-two); }
+
+.amount-form.hidden { display: none; }
+.amount-label {
+  display: block;
+  font-size: 14px;
+  color: var(--chalk-dim);
+  margin-bottom: 6px;
+  text-align: center;
+}
+.amount-input-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+#amount-input {
+  width: 120px;
+  background: var(--ink-raised);
+  border: 1px solid var(--circle-guide-color);
+  border-radius: var(--button-radius);
+  color: var(--chalk);
+  font-family: var(--font-body);
+  font-size: 18px;
+  text-align: center;
+  padding: 9px 12px;
+}

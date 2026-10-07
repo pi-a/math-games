@@ -1,0 +1,50 @@
+
+:root {
+
+  --ink: #20241f;            /* page background */
+  --ink-raised: #2a2f28;     /* slightly-lighter surface on top of --ink */
+  --chalk: #efe8d8;          /* primary text + linework — chalk white */
+  --chalk-dim: #93967f;      /* secondary / muted text */
+  --accent: #c9a15a;         /* interactive accent — buttons, focus, selection */
+  --accent-strong: #ddb56c;  /* accent hover state */
+  --player-one: #d97b4f;     /* player 1's line color */
+  --player-two: #5b8fa3;     /* player 2's line color */
+  --warning: #d97b4f;        /* invalid-move message text */
+
+  --font-heading: "Lora", Georgia, "Times New Roman", serif;
+  --font-body: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* ---- Board -------------------------------------------------------------*/
+  --circle-guide-color: #454a3f;
+  --circle-guide-width: 1.5px;
+  --point-fill: var(--chalk);
+  --point-stroke: var(--ink);
+  --point-stroke-width: 2px;
+  --point-selected-fill: var(--accent);
+  --point-label-color: var(--chalk-dim);
+  --point-label-font-size: 13px;
+  --segment-width: 3px;
+
+  /* ---- Corner images -------------------------------------------------- */
+  --corner-size: 130px;
+  --corner-margin: 24px;
+  --corner-opacity: 0.85;
+
+  /* ---- Buttons ------------------------------------------------------------*/
+  --button-bg: var(--accent);
+  --button-bg-hover: var(--accent-strong);
+  --button-text: #20241f;
+  --button-radius: 6px;
+  --button-secondary-border: var(--chalk-dim);
+}
+
+@media (max-width: 680px) {
+  :root {
+    --corner-size: 64px;
+    --corner-margin: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

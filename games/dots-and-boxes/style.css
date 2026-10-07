@@ -1,0 +1,32 @@
+/* Game-specific rules only — shared layout/forms/turn-indicator/buttons
+   live in shared/css/base.css. */
+
+.dab-board {
+  display: grid;
+  justify-content: center;
+  margin: 28px auto;
+}
+
+.dab-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--chalk-dim);
+  align-self: center;
+  justify-self: center;
+}
+
+.dab-line {
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 3px;
+}
+.dab-line-h { height: 8px; align-self: center; }
+.dab-line-v { width: 8px; justify-self: center; }
+.dab-line:not(.dab-line-drawn) { cursor: pointer; }
+.dab-line:not(.dab-line-drawn):hover { background: var(--accent); opacity: 0.5; }
+.dab-line-drawn { background: var(--chalk); }
+
+.dab-box-owned.player1 { background: var(--player-one); opacity: 0.35; }
+.dab-box-owned.player2 { background: var(--player-two); opacity: 0.35; }

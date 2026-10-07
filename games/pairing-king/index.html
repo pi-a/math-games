@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Der Paar-König</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/css/theme.css" />
+<link rel="stylesheet" href="../../shared/css/base.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="corner corner-top-left"><img class="corner-image" data-asset="corner-top-left" alt="" /></div>
+<div class="corner corner-top-right"><img class="corner-image" data-asset="corner-top-right" alt="" /></div>
+<div class="corner corner-bottom-left"><img class="corner-image" data-asset="corner-bottom-left" alt="" /></div>
+<div class="corner corner-bottom-right"><img class="corner-image" data-asset="corner-bottom-right" alt="" /></div>
+
+<main class="wrap">
+
+  <section id="view-setup" class="view">
+    <h1 class="title">Der Paar-König</h1>
+    <p class="tagline">Setze den König auf ein beliebiges Feld. Bewege ihn, bis er nicht mehr ziehen kann.</p>
+
+    <div class="rules">
+      <p>Spieler 1 setzt einen König auf ein beliebiges Feld eines leeren 8&times;8-Bretts. Danach ziehen die Spieler abwechselnd, Spieler 2 beginnt. In jedem Zug geht der König ein Feld weit, auch diagonal, so wie der König im Schach.</p>
+      <p>Der König darf nur auf ein Feld gehen, auf dem er noch nicht war. Besuchte Felder sind gesperrt: Der König kann nie wieder auf ein Feld gehen, auf dem er schon war. Das Startfeld zählt auch als besucht.</p>
+      <p>Wer nicht mehr ziehen kann, verliert.</p>
+    </div>
+
+    <form id="setup-form" class="setup-form">
+      <div class="field-row">
+        <div class="field">
+          <label for="player1-name">Spieler 1: Name oder Spitzname</label>
+          <input type="text" id="player1-name" maxlength="20" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="player2-name">Spieler 2: Name oder Spitzname</label>
+          <input type="text" id="player2-name" maxlength="20" autocomplete="off" />
+        </div>
+      </div>
+
+      <button type="submit" class="button-primary">Spiel starten</button>
+    </form>
+  </section>
+
+  <section id="view-game" class="view hidden">
+    <button id="back-button" class="button-secondary" type="button">&larr; Zurück</button>
+
+    <div class="turn-row">
+      <div id="turn-indicator-left" class="turn-slot"></div>
+      <div id="turn-indicator-right" class="turn-slot"></div>
+    </div>
+
+    <p id="king-hint" class="king-hint"></p>
+    <div id="king-board" class="king-board"></div>
+  </section>
+
+</main>
+
+<script src="js/config.js"></script>
+<script src="../../shared/js/assets.js"></script>
+<script src="js/game.js"></script>
+<script src="js/render.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+/* Game-specific rules only — shared layout/forms/turn-indicator/buttons
+   live in shared/css/base.css. */
+
+.expression-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 32px 0;
+}
+
+.number-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: var(--ink-raised);
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.sign-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 34px;
+  height: 34px;
+}
+
+.sign-button {
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  border: 1px solid var(--button-secondary-border);
+  background: transparent;
+  color: var(--chalk);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+.sign-button:hover { border-color: var(--accent); color: var(--accent); }
+
+.sign-slot-filled {
+  font-size: 18px;
+  font-weight: 600;
+  min-width: 26px;
+  text-align: center;
+}
+.sign-slot-filled.player1 { color: var(--player-one); }
+.sign-slot-filled.player2 { color: var(--player-two); }

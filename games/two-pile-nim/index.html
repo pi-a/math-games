@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zwei Haufen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/css/theme.css" />
+<link rel="stylesheet" href="../../shared/css/base.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="corner corner-top-left"><img class="corner-image" data-asset="corner-top-left" alt="" /></div>
+<div class="corner corner-top-right"><img class="corner-image" data-asset="corner-top-right" alt="" /></div>
+<div class="corner corner-bottom-left"><img class="corner-image" data-asset="corner-bottom-left" alt="" /></div>
+<div class="corner corner-bottom-right"><img class="corner-image" data-asset="corner-bottom-right" alt="" /></div>
+
+<main class="wrap">
+
+  <section id="view-setup" class="view">
+    <h1 class="title">Zwei Haufen</h1>
+    <p class="tagline">Nimm Steine von einem Haufen. Wer den letzten Stein nimmt, gewinnt.</p>
+
+    <div class="rules">
+      <p>Es gibt zwei Haufen mit Steinen. Wenn du am Zug bist, nimmst du so viele Steine weg, wie du möchtest, mindestens einen. Du darfst aber nur von einem Haufen nehmen.</p>
+      <p>Wer den letzten Stein nimmt, gewinnt.</p>
+    </div>
+
+    <form id="setup-form" class="setup-form">
+      <div class="field-row">
+        <div class="field">
+          <label for="player1-name">Spieler 1: Name oder Spitzname</label>
+          <input type="text" id="player1-name" maxlength="20" autocomplete="off" />
+        </div>
+        <div class="field">
+          <label for="player2-name">Spieler 2: Name oder Spitzname</label>
+          <input type="text" id="player2-name" maxlength="20" autocomplete="off" />
+        </div>
+      </div>
+
+      <button type="submit" class="button-primary">Spiel starten</button>
+    </form>
+  </section>
+
+  <section id="view-game" class="view hidden">
+    <button id="back-button" class="button-secondary" type="button">&larr; Zurück</button>
+
+    <div class="turn-row">
+      <div id="turn-indicator-left" class="turn-slot"></div>
+      <div id="turn-indicator-right" class="turn-slot"></div>
+    </div>
+
+    <div id="piles-container" class="piles-container">
+      <div class="pile-block">
+        <p class="pile-label">Haufen A</p>
+        <div id="pile-a-row" class="pile-row"></div>
+      </div>
+      <div class="pile-block">
+        <p class="pile-label">Haufen B</p>
+        <div id="pile-b-row" class="pile-row"></div>
+      </div>
+    </div>
+    <p class="pile-hint">Klicke auf einen Stein. Er und alle Steine danach in diesem Haufen werden weggenommen. Fahre mit der Maus über einen Stein, um eine Vorschau zu sehen.</p>
+
+    <div id="message-banner" class="message-banner" aria-live="polite"></div>
+  </section>
+
+</main>
+
+<script src="js/config.js"></script>
+<script src="../../shared/js/assets.js"></script>
+<script src="js/game.js"></script>
+<script src="js/render.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

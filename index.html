@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mathematik-Spiele</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/css/theme.css" />
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: var(--ink); font-family: var(--font-body); color: var(--chalk); }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 56px 24px 64px; }
+  h1 { font-family: var(--font-heading); font-weight: 600; font-size: 36px; margin: 0 0 8px; }
+  .tagline { color: var(--chalk-dim); margin: 0 0 36px; }
+  ul { list-style: none; padding: 0; margin: 0; }
+  li { border-top: 1px solid var(--ink-raised); }
+  li:last-child { border-bottom: 1px solid var(--ink-raised); }
+  a.game-link { display: block; padding: 18px 4px; color: var(--chalk); text-decoration: none; }
+  a.game-link:hover { color: var(--accent); }
+  .game-name { font-size: 17px; font-weight: 500; }
+  .game-desc { font-size: 14px; color: var(--chalk-dim); margin-top: 4px; }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Mathematik-Spiele</h1>
+  <p class="tagline">Spiele für zwei Personen am selben Gerät.</p>
+  <ul>
+    <li><a class="game-link" href="games/circle-segments/">
+      <div class="game-name">Linien im Kreis</div>
+      <div class="game-desc">Verbinde Punkte mit Linien, die sich nicht kreuzen. Wer als Letzter eine Linie zieht, gewinnt.</div>
+    </a></li>
+    <li><a class="game-link" href="games/plus-minus-parity/">
+      <div class="game-name">Plus oder Minus</div>
+      <div class="game-desc">Setze Plus oder Minus zwischen die Zahlen. Wird die Summe gerade oder ungerade?</div>
+    </a></li>
+    <li><a class="game-link" href="games/blackboard-differences/">
+      <div class="game-name">Differenzen an der Tafel</div>
+      <div class="game-desc">Schreibe neue Differenzen an die Tafel, bis es keine mehr gibt.</div>
+    </a></li>
+    <li><a class="game-link" href="games/pennies-on-a-table/">
+      <div class="game-name">Münzen auf dem Tisch</div>
+      <div class="game-desc">Lege Münzen auf einen runden Tisch, bis kein Platz mehr da ist.</div>
+    </a></li>
+    <li><a class="game-link" href="games/two-pile-nim/">
+      <div class="game-name">Zwei Haufen</div>
+      <div class="game-desc">Nimm Steine von einem Haufen. Wer den letzten Stein nimmt, gewinnt.</div>
+    </a></li>
+    <li><a class="game-link" href="games/subtract-a-power-of-two/">
+      <div class="game-name">Zweierpotenzen</div>
+      <div class="game-desc">Zähle von 1000 genau bis 0 herunter.</div>
+    </a></li>
+    <li><a class="game-link" href="games/chomp/">
+      <div class="game-name">Chomp</div>
+      <div class="game-desc">Iss ein Feld und alles rechts unten davon. Vermeide das vergiftete Feld.</div>
+    </a></li>
+    <li><a class="game-link" href="games/pairing-king/">
+      <div class="game-name">Der Paar-König</div>
+      <div class="game-desc">Bewege einen König über das Brett, bis er nicht mehr ziehen kann.</div>
+    </a></li>
+    <li><a class="game-link" href="games/dots-and-boxes/">
+      <div class="game-name">Punkte und Kästchen</div>
+      <div class="game-desc">Zeichne Linien und schließe Kästchen. Wer ein Kästchen schließt, zieht noch einmal.</div>
+    </a></li>
+  </ul>
+</main>
+</body>
+</html>

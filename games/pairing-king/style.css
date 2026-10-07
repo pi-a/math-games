@@ -1,0 +1,40 @@
+/* Game-specific rules only — shared layout/forms/turn-indicator/buttons
+   live in shared/css/base.css. */
+
+.king-hint {
+  text-align: center;
+  font-size: 13px;
+  color: var(--chalk-dim);
+  margin: 0 0 16px;
+}
+
+.king-board {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: fit-content;
+  margin: 0 auto 8px;
+}
+.king-row { display: flex; gap: 3px; }
+
+.king-cell {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid var(--circle-guide-color);
+  background: var(--ink-raised);
+  padding: 0;
+  font-size: 19px;
+  line-height: 1;
+  color: var(--ink);
+}
+.king-cell:disabled { cursor: default; }
+
+.king-cell-legal { cursor: pointer; }
+.king-cell-legal.player1 { border: 2px solid var(--player-one); }
+.king-cell-legal.player2 { border: 2px solid var(--player-two); }
+.king-cell-legal:hover { background: var(--ink); }
+
+.king-cell-visited.player1 { background: var(--player-one); border-color: var(--player-one); }
+.king-cell-visited.player2 { background: var(--player-two); border-color: var(--player-two); }
+.king-cell-current { font-weight: 600; }
