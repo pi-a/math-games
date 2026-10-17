@@ -13,6 +13,7 @@
   const boardEl = document.getElementById("dab-board");
   const turnLeft = document.getElementById("turn-indicator-left");
   const turnRight = document.getElementById("turn-indicator-right");
+  const messageBanner = document.getElementById("message-banner");
 
   rowsInput.min = String(CONFIG.minSize);
   rowsInput.max = String(CONFIG.maxSize);
@@ -43,19 +44,31 @@
 
   backButton.addEventListener("click", function () {
     state = null;
+    clearMessage();
     showView(viewSetup);
   });
 
   boardEl.addEventListener("click", function (evt) {
     if (!state || state.isOver) return;
     const line = evt.target.closest(".dab-line");
-    if (!line || line.disabled) return;
+    if (!line) {
+      showMessage("Das war daneben. Klicke genau auf eine Linie zwischen zwei Punkten.");
+      return;
+    }
+    if (line.disabled) {
+      showMessage("Diese Linie ist schon gezeichnet.");
+      return;
+    }
     const type = line.getAttribute("data-type");
     const r = parseInt(line.getAttribute("data-r"), 10);
     const c = parseInt(line.getAttribute("data-c"), 10);
     const result = attemptMove(state, type, r, c);
-    if (!result.ok) return;
+    if (!result.ok) {
+      showMessage("Dieser Zug ist nicht erlaubt.");
+      return;
+    }
     state = result.state;
+    clearMessage();
     draw();
   });
 
@@ -65,6 +78,7 @@
 
   function startGame(rows, cols, names) {
     state = createGameState(rows, cols, names);
+    clearMessage();
     showView(viewGame);
     draw();
   }
@@ -86,4 +100,6 @@
   function clamp(value, min, max) {
     return Math.min(max, Math.max(min, value));
   }
+  function showMessage(text) { messageBanner.textContent = text; }
+  function clearMessage() { messageBanner.textContent = ""; }
 })();

@@ -23,12 +23,15 @@ function hasAnyMove(board) {
   return false;
 }
 
-function attemptMove(state, i, j) {
+function attemptMove(state, i, j, typedValue) {
   if (state.isOver) return { ok: false, reason: "game-over" };
   if (i === j) return { ok: false, reason: "same-number" };
   const a = state.board[i];
   const b = state.board[j];
   const diff = Math.abs(a - b);
+  if (typedValue !== diff) {
+    return { ok: false, reason: "wrong-value" };
+  }
   if (diff === 0 || state.board.indexOf(diff) !== -1) {
     return { ok: false, reason: "not-new" };
   }

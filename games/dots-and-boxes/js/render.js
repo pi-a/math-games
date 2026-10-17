@@ -1,5 +1,5 @@
 // render.js
-const DOT = 10;  // px
+const DOT = 16;  // px
 const GAP = 34;  // px: distance between dots, also a box's side length
 
 function buildTemplate(count) {

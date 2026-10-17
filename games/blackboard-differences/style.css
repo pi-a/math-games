@@ -34,3 +34,28 @@
 }
 .number-chip.player1 { color: var(--player-one); border-color: var(--player-one); }
 .number-chip.player2 { color: var(--player-two); border-color: var(--player-two); }
+
+.diff-form.hidden { display: none; }
+.diff-label {
+  display: block;
+  font-size: 14px;
+  color: var(--chalk-dim);
+  margin-bottom: 6px;
+  text-align: center;
+}
+.diff-input-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+#diff-input {
+  width: 120px;
+  background: var(--ink-raised);
+  border: 1px solid var(--circle-guide-color);
+  border-radius: var(--button-radius);
+  color: var(--chalk);
+  font-family: var(--font-body);
+  font-size: 18px;
+  text-align: center;
+  padding: 9px 12px;
+}

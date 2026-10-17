@@ -55,6 +55,14 @@
 
     <div id="number-row" class="number-row"></div>
 
+    <form id="diff-form" class="diff-form hidden" novalidate>
+      <label for="diff-input" id="diff-label" class="diff-label"></label>
+      <div class="diff-input-row">
+        <input type="number" id="diff-input" min="1" step="1" inputmode="numeric" autocomplete="off" />
+        <button type="submit" id="diff-submit" class="button-primary">Prüfen</button>
+      </div>
+    </form>
+
     <div id="message-banner" class="message-banner" aria-live="polite"></div>
   </section>
 

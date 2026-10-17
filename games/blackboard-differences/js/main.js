@@ -7,6 +7,9 @@
   const player2Input = document.getElementById("player2-name");
   const backButton = document.getElementById("back-button");
   const numberRow = document.getElementById("number-row");
+  const diffForm = document.getElementById("diff-form");
+  const diffLabel = document.getElementById("diff-label");
+  const diffInput = document.getElementById("diff-input");
   const turnLeft = document.getElementById("turn-indicator-left");
   const turnRight = document.getElementById("turn-indicator-right");
   const messageBanner = document.getElementById("message-banner");
@@ -15,6 +18,7 @@
   player2Input.value = CONFIG.defaultPlayerNames[1];
 
   let state = null;
+  let pendingPair = null;
 
   setupForm.addEventListener("submit", function (evt) {
     evt.preventDefault();
@@ -27,6 +31,7 @@
 
   backButton.addEventListener("click", function () {
     state = null;
+    pendingPair = null;
     clearMessage();
     showView(viewSetup);
   });
@@ -36,6 +41,15 @@
     const chip = evt.target.closest(".number-chip");
     if (!chip) return;
     const index = parseInt(chip.getAttribute("data-index"), 10);
+
+    if (pendingPair !== null) {
+      pendingPair = null;
+      state = Object.assign({}, state, { selected: index });
+      clearMessage();
+      diffInput.value = "";
+      draw();
+      return;
+    }
 
     if (state.selected === null) {
       state = Object.assign({}, state, { selected: index });
@@ -47,13 +61,44 @@
       draw();
       return;
     }
-    const result = attemptMove(state, state.selected, index);
-    if (!result.ok) {
-      showMessage(messageFor(result.reason));
+
+    pendingPair = { i: state.selected, j: index };
+    clearMessage();
+    diffInput.value = "";
+    draw();
+  });
+
+  diffForm.addEventListener("submit", function (evt) {
+    evt.preventDefault();
+    if (!state || state.isOver || !pendingPair) return;
+
+    const raw = diffInput.value.trim();
+    const typedValue = Number(raw);
+    if (raw === "" || !Number.isInteger(typedValue)) {
+      diffInput.value = "";
+      diffInput.focus();
       return;
     }
+
+    const result = attemptMove(state, pendingPair.i, pendingPair.j, typedValue);
+    if (!result.ok) {
+      if (result.reason === "not-new") {
+        showMessage(messageFor(result.reason));
+        pendingPair = null;
+        state = Object.assign({}, state, { selected: null });
+        diffInput.value = "";
+        draw();
+        return;
+      }
+      diffInput.value = "";
+      diffInput.focus();
+      return;
+    }
+
     state = result.state;
+    pendingPair = null;
     clearMessage();
+    diffInput.value = "";
     draw();
   });
 
@@ -63,6 +108,7 @@
 
   function startGame(names) {
     state = createGameState(CONFIG.startingNumbers, names);
+    pendingPair = null;
     clearMessage();
     showView(viewGame);
     draw();
@@ -75,7 +121,14 @@
   }
 
   function draw() {
-    renderBoard(state, { numberRow: numberRow, turnLeft: turnLeft, turnRight: turnRight });
+    renderBoard(state, pendingPair, {
+      numberRow: numberRow,
+      diffForm: diffForm,
+      diffLabel: diffLabel,
+      diffInput: diffInput,
+      turnLeft: turnLeft,
+      turnRight: turnRight,
+    });
   }
 
   function messageFor(reason) {
